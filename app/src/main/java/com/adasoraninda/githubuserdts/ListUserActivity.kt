@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 
 class ListUserActivity : AppCompatActivity() {
-
     private var imageUser: ImageView? = null
     private var textUser: TextView? = null
     private var layoutItemUser: View? = null
@@ -33,7 +32,6 @@ class ListUserActivity : AppCompatActivity() {
         layoutItemUser?.setOnClickListener {
             navigateToDetailUser(dataUser)
         }
-
     }
 
     private fun initData(user: User?) {

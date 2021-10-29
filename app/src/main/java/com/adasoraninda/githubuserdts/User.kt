@@ -2,7 +2,6 @@ package com.adasoraninda.githubuserdts
 
 import android.os.Parcelable
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
