@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GitHubUserDTS">
 
-        <activity android:name=".DetailUserActivity" />
+        <activity android:name=".ui.ListUserActivity" />
+
+        <activity android:name=".ui.DetailUserActivity" />
 
         <activity
-            android:name=".ListUserActivity"
+            android:name=".ui.SplashActivity"
+            android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

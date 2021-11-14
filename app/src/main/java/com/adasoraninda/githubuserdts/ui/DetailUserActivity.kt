@@ -1,19 +1,27 @@
-package com.adasoraninda.githubuserdts
+package com.adasoraninda.githubuserdts.ui
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.adasoraninda.githubuserdts.R
+import com.adasoraninda.githubuserdts.data.User
 import com.bumptech.glide.Glide
+import com.google.android.material.imageview.ShapeableImageView
 
 
 class DetailUserActivity : AppCompatActivity() {
-    private var imageUser: ImageView? = null
-    private var textUser: TextView? = null
+
+    companion object {
+        const val EXTRA_USER = "KEY_USER"
+    }
+
+    private var imageUser: ShapeableImageView? = null
+    private var textUsername: TextView? = null
+    private var textName: TextView? = null
     private var dataUser: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +29,10 @@ class DetailUserActivity : AppCompatActivity() {
         setContentView(R.layout.acitivity_detail_user)
 
         imageUser = findViewById(R.id.image_user)
-        textUser = findViewById(R.id.text_username)
+        textUsername = findViewById(R.id.text_username)
+        textName = findViewById(R.id.text_name)
 
-        dataUser = intent.getParcelableExtra(KEY_USER) as? User
+        dataUser = intent.getParcelableExtra(EXTRA_USER) as? User
 
         initData(dataUser)
 
@@ -33,7 +42,7 @@ class DetailUserActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detail_user, menu)
-        return super.onCreateOptionsMenu(menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -46,9 +55,7 @@ class DetailUserActivity : AppCompatActivity() {
                 shareUser(dataUser)
                 true
             }
-            else -> {
-                super.onOptionsItemSelected(item)
-            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -63,8 +70,8 @@ class DetailUserActivity : AppCompatActivity() {
     }
 
     private fun initData(user: User?) {
-        textUser?.text = user?.username
-
+        textUsername?.text = user?.username
+        textName?.text = user?.name
         imageUser?.let {
             Glide.with(this)
                 .load(user?.avatar)
@@ -72,7 +79,5 @@ class DetailUserActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
-        const val KEY_USER = "KEY_USER"
-    }
+
 }
