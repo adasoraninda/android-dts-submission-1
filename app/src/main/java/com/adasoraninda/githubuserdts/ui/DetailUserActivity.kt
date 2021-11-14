@@ -26,7 +26,7 @@ class DetailUserActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.acitivity_detail_user)
+        setContentView(R.layout.activity_detail_user)
 
         imageUser = findViewById(R.id.image_user)
         textUsername = findViewById(R.id.text_username)
